@@ -37,11 +37,20 @@
 		blueman.enable = true;
 		libinput.enable = true;
 		openssh.enable = true;
-		getty.autologinUser = "x";
 		resolved.enable = true;
 
 		xserver = {
-			desktopManager.cinnamon.enable = true;	
+			desktopManager.cinnamon.enable = true;
+		};
+
+		greetd = {
+			enable = true;
+			settings = rec {
+				default_session = {
+					command = "${pkgs.hyprland}/bin/Hyprland";
+					user = "x";
+				};
+			};
 		};
 	};
 
