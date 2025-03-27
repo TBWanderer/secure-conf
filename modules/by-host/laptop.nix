@@ -3,6 +3,7 @@
 		inputs.stylix.nixosModules.stylix
 		../stylix.nix
 		../home
+		../proxy/tor
 	];
 	config = {
 		environment.systemPackages = with pkgs; [
