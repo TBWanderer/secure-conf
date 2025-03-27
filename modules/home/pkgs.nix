@@ -14,5 +14,6 @@ let unstable = import inputs.unstable { inherit system; }; in {
 		sutils
 		wl-clipboard
 		telegram-desktop
+		aseprite
 	];
 }
