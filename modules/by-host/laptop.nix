@@ -23,7 +23,7 @@
 			gping
 			lazygit
 			nasm
-			neofetch
+			fastfetch
 			neovim
 			nh
 			p7zip
