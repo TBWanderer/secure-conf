@@ -144,7 +144,6 @@
 			bind = $mod, 8, workspace, 8
 			bind = $mod, 9, workspace, 9
 			bind = $mod, 0, workspace, 10
-			bind = $mod CTRL, o, workspace, 11
 			
 			bind = $mod SHIFT, 1, movetoworkspace, 1
 			bind = $mod SHIFT, 2, movetoworkspace, 2
@@ -156,7 +155,6 @@
 			bind = $mod SHIFT, 8, movetoworkspace, 8
 			bind = $mod SHIFT, 9, movetoworkspace, 9
 			bind = $mod SHIFT, 0, movetoworkspace, 10
-			bind = $mod SHIFT, k, movetoworkspace, 11
 
 			bind = $mod, mouse_down, workspace, e+1
 			bind = $mod, mouse_up, workspace, e-1
