@@ -11,5 +11,8 @@ let unstable = import inputs.unstable { inherit system; }; in {
 		blueman
 		bluez
 		alsa-utils
+		sutils
+		wl-clipboard
+		telegram-desktop
 	];
 }
