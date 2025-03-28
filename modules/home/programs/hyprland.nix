@@ -122,6 +122,7 @@
 			bind = $mod, R, exec, rofi -show drun
 			bind = $mod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy
 			
+			bind = , PRINT, exec, ${import ./sshot.nix {inherit pkgs; }}/bin/sshot
 			bind = CTRL SHIFT, PRINT, exec, pkill wf-recorder
 			
 			bind = $mod, h, movefocus, l
