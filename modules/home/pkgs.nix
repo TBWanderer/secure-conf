@@ -15,5 +15,10 @@ let unstable = import inputs.unstable { inherit system; }; in {
 		wl-clipboard
 		telegram-desktop
 		aseprite
+		tor-browser
+		libreoffice-fresh
+		grim
+		slurp
+		imagemagickBig
 	];
 }
