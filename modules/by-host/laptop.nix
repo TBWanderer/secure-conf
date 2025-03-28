@@ -3,12 +3,12 @@
 		inputs.stylix.nixosModules.stylix
 		../stylix.nix
 		../home
-		../proxy/tor
+		../rust.nix
 	];
 	config = {
 		environment.systemPackages = with pkgs; [
 			bat
-			broot
+			tree
 			bottom
 			delta
 			direnv
@@ -31,6 +31,7 @@
 			ripgrep
 			unzip
 			vim
+			wireguard-tools
 			xdg-utils
 			zip
 			zoxide
