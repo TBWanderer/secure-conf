@@ -1,6 +1,6 @@
 { ... }:
 {
-	programs.fish = let config_path = "/home/x/secure-conf"; in {
+	programs.fish = let config_path = "/home/x/nixos-conf"; in {
 		enable = true;
 		interactiveShellInit = ''
 			set fish_greeting
