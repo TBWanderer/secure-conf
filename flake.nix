@@ -14,6 +14,7 @@
 		};
 		firefox.url = "github:nix-community/flake-firefox-nightly";
 		rust-overlay.url = "github:oxalica/rust-overlay";
+		pabc-nix.url = "github:proggerx/pabc-nix";
 	};
 
 	outputs = { nixpkgs, nix-ld, home-manager, ... }@inputs: {
