@@ -17,6 +17,7 @@
 		};
 		supportedFilesystems = [ "ntfs" ];
 		kernelPackages = pkgs.linuxKernel.packages.linux_6_13;
+		kernelParams = [ "kvm.enable_virt_at_load=0" ];
 	};
 
 	hardware = {
@@ -86,7 +87,16 @@
 
 	fonts.packages = with pkgs; [( (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; }) )];
 	
-	virtualisation = { docker.enable = true; };
+	virtualisation = {
+		docker.enable = true;
+		virtualbox = {
+			host = {
+				enable = true;
+				enableExtensionPack = true;
+			};
+			guest.enable = true;
+		};
+	};
 
 	programs = {
 		git.enable = true;
@@ -114,7 +124,7 @@
 	users.users = {
 		x = {
 			isNormalUser = true;
-			extraGroups = [ "wheel" "docker" ];
+			extraGroups = [ "wheel" "docker" "vboxusers" ];
 			shell = pkgs.fish;
 		};
 		root.shell = pkgs.fish;
