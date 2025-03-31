@@ -8,5 +8,6 @@
 	imports = [
 		./fish.nix
 		./hyprland.nix
+		./hyprlock.nix
 	];
 }
