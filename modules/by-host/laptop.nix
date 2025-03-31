@@ -18,6 +18,7 @@
 			eza
 			fd
 			file
+			gcc
 			git
 			github-cli
 			gping
