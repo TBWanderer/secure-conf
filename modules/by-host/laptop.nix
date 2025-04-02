@@ -10,6 +10,7 @@
 			bat
 			tree
 			bottom
+			brightnessctl
 			delta
 			direnv
 			doggo
