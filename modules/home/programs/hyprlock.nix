@@ -5,7 +5,7 @@
 		extraConfig = ''
 			background {
 			    monitor =
-			    path = ${../../../../stylix/ryo-wallpaper.png}
+			    path = ${../../wallpapers/aot.jpg}
 			    blur_passes = 2
 			    contrast = 1
 			    brightness = 0.5

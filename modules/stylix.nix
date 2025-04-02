@@ -2,11 +2,11 @@
 {
 	stylix = {
 		enable = true;
-		image = ./wallpaper.png;
+		image = ./wallpapers/aot.jpg;
 		opacity = {
 			terminal = 0.8;
-			desktop = 0.8;
-			applications = 0.8;
+			desktop = 1;
+			applications = 1;
 		};
 		fonts = rec {
 			sizes = {
