@@ -11,7 +11,6 @@ let unstable = import inputs.unstable { inherit system; }; in {
 		libnotify
 		swaynotificationcenter
 		nemo
-		rofi-wayland
 		blueman
 		bluez
 		alsa-utils
