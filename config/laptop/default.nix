@@ -16,7 +16,7 @@
 			};
 		};
 		supportedFilesystems = [ "ntfs" ];
-		kernelPackages = pkgs.linuxKernel.packages.linux_6_13;
+		kernelPackages = pkgs.linuxKernel.packages.linux_6_14;
 		kernelParams = [ "kvm.enable_virt_at_load=0" ];
 	};
 
@@ -25,7 +25,6 @@
 			enable = true;
 			powerOnBoot = true;
 		};
-		pulseaudio.enable = lib.mkForce false;
 	};
 
 	services = {
@@ -34,6 +33,7 @@
 			pulse.enable = true;
 		};
 
+		pulseaudio.enable = false;
 		tailscale.enable = true;
 		blueman.enable = true;
 		libinput.enable = true;
@@ -48,7 +48,7 @@
 			enable = true;
 			settings = rec {
 				default_session = {
-					command = "${pkgs.hyprland}/bin/Hyprland";
+					command = "${pkgs.cage}/bin/cage ${pkgs.greetd.gtkgreet}/bin/gtkgreet";
 					user = "x";
 				};
 			};
@@ -85,7 +85,12 @@
 		DIRENV_LOG_FORMAT = "";
 	};
 
-	fonts.packages = with pkgs; [( (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; }) )];
+	fonts.packages = with pkgs; [
+		nerd-fonts.jetbrains-mono
+		noto-fonts
+		corefonts
+		vistafonts
+	];
 	
 	virtualisation = {
 		docker.enable = true;
@@ -94,7 +99,6 @@
 				enable = true;
 				enableExtensionPack = true;
 			};
-			guest.enable = true;
 		};
 	};
 

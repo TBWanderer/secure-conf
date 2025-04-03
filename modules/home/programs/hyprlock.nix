@@ -44,7 +44,7 @@
 			  text = cmd[update:1000] echo "$(date +"%A, %B %d")"
 			  color = rgb(${sys.lib.stylix.colors.base05})
 			  font_size = 22
-			  font_family = JetBrainsMono
+			  font_family = JetBrainsMono NF
 			  position = 0, 300
 			  halign = center
 			  valign = center
@@ -55,7 +55,7 @@
 			  text = cmd[update:1000] echo "$(date +"%-I:%M")"
 			  color = rgb(${sys.lib.stylix.colors.base05})
 			  font_size = 95
-			  font_family = JetBrainsMono Nerd Font
+			  font_family = JetBrainsMono NF
 			  position = 0, 200
 			  halign = center
 			  valign = center

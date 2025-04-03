@@ -13,8 +13,8 @@
 				terminal = 10;
 			};
 			serif = {
-				package = (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; });
-				name = "JetBrainsMono Nerd Font";
+				package = pkgs.nerd-fonts.jetbrains-mono;
+				name = "JetBrainsMono NF";
 			};
 			sansSerif = serif;
 			monospace = serif;
