@@ -1,8 +1,10 @@
 { pkgs, lib, ... }:
 {
-	services.hyprpaper.enable = lib.mkForce false;
+	services = {
+		hyprpaper.enable = lib.mkForce false;
+		wpaperd.enable = true;
+	};
 	stylix.targets.hyprland.enable = false;
-	programs.wpaperd.enable = true;
 	wayland.windowManager.hyprland = {
 		enable = true;
 		extraConfig = ''
