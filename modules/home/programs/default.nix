@@ -9,5 +9,6 @@
 		./fish.nix
 		./hyprland.nix
 		./hyprlock.nix
+		./rofi.nix
 	];
 }
