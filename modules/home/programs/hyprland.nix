@@ -14,7 +14,6 @@
 			$fileManager = nemo
 			$menu = rofi -show drun
 			
-			exec-once = hyprlock && sleep 0.2 && waybar
 			exec-once = wpaperd
 			exec-once = wl-paste --watch cliphist store
 
