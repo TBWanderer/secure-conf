@@ -1,11 +1,14 @@
-{ sys, ... }: {
+{ sys, ... }: 
+let
+	wallpapers = ../../wallpapers;
+in {
 	stylix.targets.hyprlock.enable = false;
 	programs.hyprlock = {
 		enable = true;
 		extraConfig = ''
 			background {
 			    monitor =
-			    path = ${../../wallpapers/aot.jpg}
+			    path = ${wallpapers}/aot.jpg
 			    blur_passes = 2
 			    contrast = 1
 			    brightness = 0.5
