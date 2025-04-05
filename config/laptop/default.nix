@@ -1,6 +1,12 @@
 { lib, pkgs, inputs, ... }:
-{
-	imports = [ ./hardware-configuration.nix ./nvidia.nix ];
+let
+	modules = ../../modules/;
+in {
+	imports = [
+		./hardware-configuration.nix
+		"${modules}/nvidia.nix"
+	#   "${modules}/disko.nix"
+	];
 
 	boot = {
 		loader = {
@@ -42,15 +48,13 @@
 		openssh.enable = true;
 		resolved.enable = true;
 
-		xserver = {
-			desktopManager.cinnamon.enable = true;
-		};
+		xserver.desktopManager.cinnamon.enable = true;
 
 		greetd = {
 			enable = true;
 			settings = rec {
 				default_session = {
-					command = "${pkgs.cage}/bin/cage ${pkgs.greetd.gtkgreet}/bin/gtkgreet";
+					command = "${pkgs.cage}/bin/cage ${pkgs.greetd.gtkgreet}/bin/gtkgreet -- -c Hyprland";
 					user = "x";
 				};
 			};
