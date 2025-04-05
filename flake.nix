@@ -16,9 +16,18 @@
 		firefox.url = "github:nix-community/flake-firefox-nightly";
 		rust-overlay.url = "github:oxalica/rust-overlay";
 		pabc-nix.url = "github:proggerx/pabc-nix";
+		ayugram-desktop = {
+    		type = "git";
+    		submodules = true;
+    		url = "https://github.com/ndfined-crp/ayugram-desktop/";
+		};
+		disko = {
+			url = "github:nix-community/disko";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
 	};
 
-	outputs = { nixpkgs, nix-ld, home-manager, ... }@inputs: {
+	outputs = { nixpkgs, nix-ld, home-manager, disko, ... }@inputs: {
 		nixosConfigurations = {
 			laptop = nixpkgs.lib.nixosSystem {
 				system = "x86_64-linux";

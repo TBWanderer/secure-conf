@@ -1,6 +1,7 @@
 { inputs, pkgs, ... }: {
 	imports = [
 		inputs.stylix.nixosModules.stylix
+		inputs.disko.nixosModules.disko
 		../stylix.nix
 		../home
 		../rust.nix
