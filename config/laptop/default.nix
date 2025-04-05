@@ -1,6 +1,6 @@
 { lib, pkgs, inputs, ... }:
 {
-	imports = [ ./hardware-configuration.nix ];
+	imports = [ ./hardware-configuration.nix ./nvidia.nix ];
 
 	boot = {
 		loader = {
@@ -26,6 +26,8 @@
 			powerOnBoot = true;
 		};
 	};
+
+	nvidia.enable = true;
 
 	services = {
 		pipewire = {
