@@ -4,6 +4,7 @@ let unstable = import inputs.unstable { inherit system; }; in {
 		# Packages from inputs
 		firefox.packages.${pkgs.system}.firefox-nightly-bin
 		pabc-nix.packages.${pkgs.system}.default
+		ayugram-desktop.packages.${pkgs.system}.ayugram-desktop
 		
 		# User packages
 		vesktop
@@ -23,5 +24,8 @@ let unstable = import inputs.unstable { inherit system; }; in {
 		grim
 		slurp
 		imagemagickBig
+		r2modman
+		winetricks
+		wineWowPackages.waylandFull
 	];
 }
