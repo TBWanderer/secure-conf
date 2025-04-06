@@ -2,6 +2,7 @@
 	imports = [
 		inputs.stylix.nixosModules.stylix
 		inputs.disko.nixosModules.disko
+		inputs.yandex-music.nixosModules.default
 		../stylix.nix
 		../home
 		../rust.nix
@@ -30,6 +31,7 @@
 			neovim
 			nh
 			p7zip
+			pamixer
 			procs
 			ripgrep
 			unzip

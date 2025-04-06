@@ -25,6 +25,7 @@
 			url = "github:nix-community/disko";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
+		yandex-music.url = "github:cucumber-sp/yandex-music-linux";
 	};
 
 	outputs = { nixpkgs, nix-ld, home-manager, disko, ... }@inputs: {
