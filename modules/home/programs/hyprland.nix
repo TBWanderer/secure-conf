@@ -121,7 +121,7 @@
 			bind = $mod, E, exec, nemo
 			bind = ALT, SPACE, exec, rofi -show run
 			bind = $mod, R, exec, rofi -show drun
-			bind = $mod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy
+			bind = $mod, V, exec, cliphist list | rofi -dmenu -p "Cliphist search:" -window-title "Cliphist" -sync | cliphist decode | wl-copy
 			
 			bind = , PRINT, exec, ${import ./sshot.nix {inherit pkgs; }}/bin/sshot
 			bind = CTRL SHIFT, PRINT, exec, pkill wf-recorder
