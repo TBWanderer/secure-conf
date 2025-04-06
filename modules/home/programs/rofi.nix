@@ -14,7 +14,7 @@
 			    fg-col2: #${base05};
 			    grey: #${base05};
 			
-			    width: 600;
+			    width: 800;
 			    font: "JetBrainsMono NF 14";
 			}
 
