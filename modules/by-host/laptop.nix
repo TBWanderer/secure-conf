@@ -10,11 +10,9 @@
 	config = {
 		environment.systemPackages = with pkgs; [
 			bat
-			tree
 			bottom
 			brightnessctl
 			delta
-			direnv
 			doggo
 			duf
 			dust
@@ -24,6 +22,7 @@
 			gcc
 			git
 			github-cli
+			go
 			gping
 			lazygit
 			nasm
@@ -34,6 +33,8 @@
 			pamixer
 			procs
 			ripgrep
+			translate-shell
+			tree
 			unzip
 			vim
 			wireguard-tools
