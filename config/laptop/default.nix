@@ -114,6 +114,10 @@ in {
 		fish.enable = true;
 		nix-ld.enable = true;
 		starship.enable = true;
+		direnv = {
+			enable = true;
+			nix-direnv.enable = true;
+		};
 		steam = {
 			enable = true;
 			remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
