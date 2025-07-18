@@ -5,5 +5,6 @@
 			extensions = [ "rust-src" "rust-analyzer" "rustfmt" ];
 			targets = [ "x86_64-apple-darwin" "x86_64-unknown-linux-gnu" "x86_64-pc-windows-gnu" ];
 		}))
+		pkgs.cargo-cross
 	];
 }

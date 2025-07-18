@@ -11,9 +11,7 @@ in {
 	boot = {
 		loader = {
 			systemd-boot.enable = false;
-			efi = {
-				canTouchEfiVariables = false;
-			};
+			efi.canTouchEfiVariables = false;
 			grub = {
 				enable = true;
 				efiInstallAsRemovable = true;
@@ -22,8 +20,43 @@ in {
 			};
 		};
 		supportedFilesystems = [ "ntfs" ];
-		kernelPackages = pkgs.linuxKernel.packages.linux_6_14;
+		kernelPackages = pkgs.linuxKernel.packages.linux_6_15;
 		kernelParams = [ "kvm.enable_virt_at_load=0" ];
+		kernelModules = [ "tcp_bbr" ];
+		kernel.sysctl = {
+			# Disable magic SysRq key
+    		"kernel.sysrq" = 0;
+    		# Ignore ICMP broadcasts to avoid participating in Smurf attacks
+    		"net.ipv4.icmp_echo_ignore_broadcasts" = 1;
+    		# Ignore bad ICMP errors
+    		"net.ipv4.icmp_ignore_bogus_error_responses" = 1;
+    		# Reverse-path filter for spoof protection
+    		"net.ipv4.conf.default.rp_filter" = 1;
+    		"net.ipv4.conf.all.rp_filter" = 1;
+    		# SYN flood protection
+    		"net.ipv4.tcp_syncookies" = 1;
+    		# Do not accept ICMP redirects (prevent MITM attacks)
+    		"net.ipv4.conf.all.accept_redirects" = 0;
+    		"net.ipv4.conf.default.accept_redirects" = 0;
+    		"net.ipv4.conf.all.secure_redirects" = 0;
+    		"net.ipv4.conf.default.secure_redirects" = 0;
+    		"net.ipv6.conf.all.accept_redirects" = 0;
+    		"net.ipv6.conf.default.accept_redirects" = 0;
+    		# Do not send ICMP redirects (we are not a router)
+    		"net.ipv4.conf.all.send_redirects" = 0;
+    		# Do not accept IP source route packets (we are not a router)
+    		"net.ipv4.conf.all.accept_source_route" = 0;
+    		"net.ipv6.conf.all.accept_source_route" = 0;
+    		# Protect against tcp time-wait assassination hazards
+    		"net.ipv4.tcp_rfc1337" = 1;
+    		# TCP Fast Open (TFO)
+    		"net.ipv4.tcp_fastopen" = 3;
+    		## Bufferbloat mitigations
+    		# Requires >= 4.9 & kernel module
+    		"net.ipv4.tcp_congestion_control" = "bbr";
+    		# Requires >= 4.19
+    		"net.core.default_qdisc" = "cake";
+		};
 	};
 
 	hardware = {
@@ -45,7 +78,16 @@ in {
 		tailscale.enable = true;
 		blueman.enable = true;
 		libinput.enable = true;
-		openssh.enable = true;
+		openssh = {
+			enable = true;
+			passwordAuthentication = false;
+		};
+		fail2ban = {
+    		enable = true;
+    		maxretry = 10;
+    		bantime-increment.enable = true;
+    	};
+
 		resolved.enable = true;
 
 		xserver.desktopManager.cinnamon.enable = true;
@@ -63,6 +105,11 @@ in {
 
 	networking = {
 		hostName = "laptop";
+		nameservers = [
+			"100.126.179.69"
+			"1.1.1.1"
+			"8.8.8.8"
+		];
 		networkmanager.enable = true;
 		proxy = {
 		# 	default = "http://user:password@host.com:1234/";
@@ -121,7 +168,7 @@ in {
 		steam = {
 			enable = true;
 			remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-			dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+			dedicatedServer.openFirewall = false; # Open ports in the firewall for Source Dedicated Server
 			localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
 		};
 		yandex-music = {
@@ -136,6 +183,10 @@ in {
 		settings = {
 			substituters = [ "https://cache.garnix.io" ];
 			trusted-public-keys = [ "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g=" ];
+		};
+		gc = {
+			automatic = true;
+			dates = "weekly UTC";
 		};
 	};
 

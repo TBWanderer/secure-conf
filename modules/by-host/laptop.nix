@@ -12,6 +12,7 @@
 			bat
 			bottom
 			brightnessctl
+			calc
 			delta
 			doggo
 			duf

@@ -19,7 +19,7 @@
 				margin-top = 5;
 				margin-bottom = 5;
 		
-				modules-center  = ["bluetooth" "custom/cava" "network"];
+				modules-center  = ["bluetooth" "custom/cava" "custom/yandex-music" "network"];
 				modules-left  = ["hyprland/workspaces" "hyprland/window"];
 				modules-right  = ["tray" "cpu" "memory" "backlight" "custom/pipewire" "custom/battery" "hyprland/language" "clock"];
 				"hyprland/workspaces" = {
@@ -141,7 +141,7 @@
 				};
 		
 				"custom/battery" = {
-					exec = "${import ./scripts/battery.nix { inherit pkgs; }}/bin/battery";
+					exec = "${import ../../shell/checkbattery/default.nix { inherit pkgs; }}/bin/checkbattery";
 					interval = 2;
 					format = {};
 				};
@@ -152,7 +152,7 @@
 					max-length = 60;
 					escape = true;
 					tooltip = false;
-					exec = "${import ./scripts/cava.nix { inherit pkgs; }}/bin/cava";
+					exec = "${import ../../shell/cava { inherit pkgs; }}/bin/cava_waybar";
 				};
 
 				"custom/yandex-music" = {

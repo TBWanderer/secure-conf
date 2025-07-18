@@ -4,9 +4,7 @@
 		enable = true;
 		image = ./wallpapers/aot.jpg;
 		opacity = {
-			terminal = 0.8;
-			desktop = 1.0;
-			applications = 1.0;
+			applications = 1;
 		};
 		fonts = rec {
 			sizes = {

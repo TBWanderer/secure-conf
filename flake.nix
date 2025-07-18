@@ -2,15 +2,15 @@
 	description = "Flake NixOS configuration";
 
 	inputs = {
-		nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-		stable.url = "github:NixOS/nixpkgs/nixos-24.11";
-    	stylix.url = "github:danth/stylix";	
+		unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+		nixpkgs.url = "github:NixOS/nixpkgs/release-25.05";
+    	stylix.url = "github:danth/stylix/release-25.05";	
 		nix-ld = {
 			url = "github:Mic92/nix-ld";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 		home-manager = {
-			url = "github:nix-community/home-manager";
+			url = "github:nix-community/home-manager/release-25.05";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 		firefox.url = "github:nix-community/flake-firefox-nightly";

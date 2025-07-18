@@ -7,6 +7,8 @@ let unstable = import inputs.unstable { inherit system; }; in {
 		ayugram-desktop.packages.${pkgs.system}.ayugram-desktop
 		
 		# User packages
+		prismlauncher
+		transmission_3-gtk
 		vesktop
 		cliphist
 		libnotify
@@ -27,5 +29,6 @@ let unstable = import inputs.unstable { inherit system; }; in {
 		r2modman
 		winetricks
 		wineWowPackages.waylandFull
+		obsidian
 	];
 }

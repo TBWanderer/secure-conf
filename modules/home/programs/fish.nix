@@ -4,6 +4,7 @@
 		enable = true;
 		interactiveShellInit = ''
 			set fish_greeting
+			export NIXPKGS_ALLOW_UNFREE=1
 		'';
 		loginShellInit = ''
 			echo $(tty) | grep "tty" && Hyprland
@@ -18,6 +19,7 @@
 			o = "nvim";
 			og = "neovide";
 			vim = "nvim";
+			grep = "rg";
 			light = "brightnessctl s";
 			update = "nh os switch ${config_path}";
 			deploy = "nix run github:serokell/deploy-rs -- -s ${config_path}#suserv";
