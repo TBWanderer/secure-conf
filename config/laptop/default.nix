@@ -126,10 +126,7 @@ in {
 
 	time.timeZone = "Europe/Moscow";
 
-	nixpkgs.config = {
-		allowUnfree = true;
-		android_sdk.accept_license = true;
-	};
+	nixpkgs.config.allowUnfree = true;
 
 	environment.sessionVariables = {
 		PATH = [
@@ -196,11 +193,12 @@ in {
 	users.users = {
 		x = {
 			isNormalUser = true;
-			extraGroups = [ "wheel" "docker" "vboxusers" "kvm" ];
+			extraGroups = [ "wheel" "docker" "vboxusers" ];
 			shell = pkgs.fish;
 		};
 		root.shell = pkgs.fish;
 	};
 
-	system.stateVersion = "25.05"; 
+	system.stateVersion = "24.11"; 
 }
+
