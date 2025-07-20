@@ -80,7 +80,7 @@ in {
 		libinput.enable = true;
 		openssh = {
 			enable = true;
-			passwordAuthentication = false;
+			settings.PasswordAuthentication = false;
 		};
 		fail2ban = {
     		enable = true;
@@ -116,7 +116,7 @@ in {
 		# 	noProxy = "127.0.0.1,localhost";
 		};
 		firewall = {
-			enable = false;
+			enable = true;
 		# 	allowedTCPPorts = [ ... ];
 		# 	allowedUDPPorts = [ ... ];
 		};
@@ -167,7 +167,7 @@ in {
 		};
 		steam = {
 			enable = true;
-			remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+			remotePlay.openFirewall = false; # Open ports in the firewall for Steam Remote Play
 			dedicatedServer.openFirewall = false; # Open ports in the firewall for Source Dedicated Server
 			localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
 		};
