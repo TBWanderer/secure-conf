@@ -14,7 +14,10 @@
 					homeDirectory = "/home/x";
 				};
 
-    			imports = [ ./pkgs.nix ./programs ];
+    			imports = [
+					./pkgs.nix
+					./programs
+				];
 
     			home.stateVersion = "25.05";
 			};
