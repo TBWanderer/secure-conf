@@ -7,6 +7,7 @@ let unstable = import inputs.unstable { inherit system; }; in {
 		ayugram-desktop.packages.${pkgs.system}.ayugram-desktop
 		
 		# User packages
+		# android-studio-full
 		prismlauncher
 		transmission_3-gtk
 		vesktop
