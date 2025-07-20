@@ -193,7 +193,13 @@ in {
 	users.users = {
 		x = {
 			isNormalUser = true;
-			extraGroups = [ "wheel" "docker" "vboxusers" ];
+			extraGroups = [
+				"wheel"
+				"docker"
+				"vboxusers"
+				"kvm"
+				"networkmanager"
+			];
 			shell = pkgs.fish;
 		};
 		root.shell = pkgs.fish;
