@@ -2,7 +2,7 @@
 {
 	stylix = {
 		enable = true;
-		image = ./wallpapers/aot.jpg;
+		image = ./wallpapers/blue-forest.png;
 		opacity = {
 			applications = 1;
 		};
