@@ -8,13 +8,13 @@ let unstable = import inputs.unstable { inherit system; }; in {
 		
 		# User packages
 		# android-studio-full
+		go
 		prismlauncher
 		transmission_3-gtk
 		vesktop
 		cliphist
 		libnotify
 		swaynotificationcenter
-		nemo
 		blueman
 		bluez
 		alsa-utils
@@ -24,9 +24,6 @@ let unstable = import inputs.unstable { inherit system; }; in {
 		aseprite
 		tor-browser
 		libreoffice-fresh
-		grim
-		slurp
-		imagemagickBig
 		r2modman
 		winetricks
 		wineWowPackages.waylandFull
