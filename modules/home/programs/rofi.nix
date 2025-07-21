@@ -29,6 +29,7 @@
 			    border-color: @border-col;
 			    background-color: @bg-col;
 			    border-radius: 10px;
+				padding: 0px 20px 0px 0px;
 			}
 
 			mainbox {
