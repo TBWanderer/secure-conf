@@ -10,19 +10,18 @@
 		extraConfig = ''
 			monitor=,1920x1080@144,0x0,1
 			
-			$terminal = alacritty --working-directory /home/x/
-			$fileManager = nemo
-			$menu = rofi -show drun
+			$terminal = ${pkgs.alacritty}/bin/alacritty --working-directory /home/x/
+			$fileManager = ${pkgs.nemo}/bin/nemo
+			$menu = ${pkgs.rofi-wayland}/bin/rofi -show drun
 			
-			exec-once = wpaperd
-			exec-once = wl-paste --watch cliphist store
+			exec-once = ${pkgs.wpaperd}/bin/wpaperd
+			exec-once = ${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.cliphist}/bin/cliphist store
 
 			general { 
 			    gaps_in = 5
 			    gaps_out = 10
 			
 			    border_size = 1
-				
 
 			    col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg
 			    col.inactive_border = rgba(595959aa)
@@ -39,8 +38,7 @@
 			    rounding = 10
 			    
 			    active_opacity = 1.0
-			    inactive_opacity = 1.0
-			
+			    inactive_opacity = 0.9
 			    
 			    blur {
 			        enabled = true
@@ -115,16 +113,16 @@
 			bind = $mod, u, fullscreen,
 			
 			
-			bind = $mod, RETURN, exec, alacritty msg create-window || alacritty
-			bind = $mod, A, exec, cool-retro-term --fullscreen
+			bind = $mod, RETURN, exec, ${pkgs.alacritty}/bin/alacritty msg create-window || ${pkgs.alacritty}/bin/alacritty
+			bind = $mod, A, exec, ${pkgs.cool-retro-term}/bin/cool-retro-term --fullscreen
 
-			bind = $mod, E, exec, nemo
-			bind = ALT, SPACE, exec, rofi -show run
-			bind = $mod, R, exec, rofi -show drun
-			bind = $mod, V, exec, cliphist list | rofi -dmenu -p "Cliphist search:" -window-title "Cliphist" -sync | cliphist decode | wl-copy
+			bind = $mod, E, exec, ${pkgs.nemo}/bin/nemo
+			bind = ALT, SPACE, exec, ${pkgs.rofi-wayland}/bin/rofi -show run
+			bind = $mod, R, exec, ${pkgs.rofi-wayland}/bin/rofi -show drun
+			bind = $mod, V, exec, ${pkgs.cliphist}/bin/cliphist list | ${pkgs.rofi-wayland}/bin/rofi -dmenu -p "   Cliphist " -window-title "Cliphist" -sync | ${pkgs.cliphist}/bin/cliphist decode | ${pkgs.wl-clipboard}/bin/wl-copy
 			
-			bind = , PRINT, exec, ${import ./sshot.nix {inherit pkgs; }}/bin/sshot
-			bind = CTRL SHIFT, PRINT, exec, pkill wf-recorder
+			bind = , PRINT, exec, ${import ./sshot.nix { inherit pkgs; }}/bin/sshot
+			# bind = CTRL SHIFT, PRINT, exec, pkill wf-recorder
 			
 			bind = $mod, h, movefocus, l
 			bind = $mod, l, movefocus, r
@@ -170,7 +168,7 @@
 			bind = $mod CTRL, k, resizeactive,0 -50
 			bind = $mod CTRL, j, resizeactive,0 50
 			
-			bind = $mod CTRL, p, exec, powermenu
+			# bind = $mod CTRL, p, exec, powermenu
 			
 			bind = , XF86AudioMute, exec,  ${pkgs.pamixer}/bin/pamixer -t
         	bind = , XF86AudioRaiseVolume, exec, ${pkgs.pamixer}/bin/pamixer -i2
