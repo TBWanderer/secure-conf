@@ -29,7 +29,6 @@
 			    border-color: @border-col;
 			    background-color: @bg-col;
 			    border-radius: 10px;
-				padding: 0px 20px 0px 0px;
 			}
 
 			mainbox {
@@ -66,7 +65,7 @@
 			listview {
 			    border: 0px 0px 0px;
 			    padding: 6px 0px 0px;
-			    margin: 10px 0px 0px 20px;
+			    margin: 10px 20px 0px 20px;
 			    columns: 2;
 			    lines: 5;
 			    background-color: @bg-col;
@@ -122,7 +121,7 @@
 
 		extraConfig = {
 			show-icons = true;
-    		modi = "run,drun,window";
+    		modi = "run,drun,window,ssh";
     		terminal = "alacritty";
     		drun-display-format = "{icon} {name}";
     		disable-history = false;
@@ -130,6 +129,7 @@
     		display-drun = "   Apps ";
     		display-run = "   Run ";
     		display-window = " 󰕰  Window ";
+			display-ssh = " 󰴽  SSH ";
     		sidebar-mode = true;
 		};
 	};
