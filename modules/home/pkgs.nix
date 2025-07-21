@@ -17,6 +17,7 @@ let unstable = import inputs.unstable { inherit system; }; in {
 		swaynotificationcenter
 		blueman
 		bluez
+		bluetui
 		alsa-utils
 		sutils
 		wl-clipboard
