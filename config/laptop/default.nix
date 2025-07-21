@@ -136,6 +136,7 @@ in {
 		];
 		EDITOR = "vim";
 		DIRENV_LOG_FORMAT = "";
+		NEWT_COLORS = "root=black,black;window=black,black;border=white,black;listbox=white,black;label=blue,black;checkbox=red,black;title=green,black;button=white,red;actsellistbox=white,red;actlistbox=white,gray;compactbutton=white,gray;actcheckbox=white,blue;entry=lightgray,black;textbox=blue,black";
 	};
 
 	fonts.packages = with pkgs; [
@@ -181,6 +182,7 @@ in {
 		package = pkgs.nixVersions.stable;
 		extraOptions = ''experimental-features = nix-command flakes'';
 		settings = {
+			show-trace = true;
 			substituters = [ "https://cache.garnix.io" ];
 			trusted-public-keys = [ "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g=" ];
 		};
