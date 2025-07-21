@@ -8,7 +8,7 @@ in {
 		extraConfig = ''
 			background {
 			    monitor =
-			    path = ${wallpapers}/aot.jpg
+			    path = ${wallpapers}/blue-forest.png
 			    blur_passes = 2
 			    contrast = 1
 			    brightness = 0.5
