@@ -1,14 +1,23 @@
 { pkgs }:
 pkgs.writeShellScriptBin "sshot" ''
 	screenshot_path=$(mktemp --suffix=.png)
-	grim -g "$(slurp)" "$screenshot_path"
+	slurp_area=$(${pkgs.slurp}/bin/slurp)
+	sleep 0.15
+
+	${pkgs.grim}/bin/grim -g "$slurp_area" "$screenshot_path"
 	
-	wl-copy < "$screenshot_path"
+	${pkgs.wl-clipboard}/bin/wl-copy < "$screenshot_path"
 	
 	thumbnail_path=$(mktemp --suffix=.png)
-	convert "$screenshot_path" -resize 100x100 "$thumbnail_path"
-	
-	notify-send -t 2000 -i "$thumbnail_path" "  Screenshot Captured" "  Screenshot saved and copied to clipboard"
+	${pkgs.imagemagickBig}/bin/convert \
+		"$screenshot_path" \
+		-resize 100x100 \
+		"$thumbnail_path" && \
+	${pkgs.libnotify}/bin/notify-send \
+		-t 2000 \
+		-i "$thumbnail_path" \
+		"  Screenshot Captured" \
+		"  Screenshot saved and copied to clipboard"
 	
 	rm "$screenshot_path" "$thumbnail_path"
 ''
