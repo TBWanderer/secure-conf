@@ -1,15 +1,10 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
 	stylix = {
 		enable = true;
 		image = ./wallpapers/blue-forest.png;
-		opacity = {
-			applications = 1;
-		};
+		opacity.terminal = 0.8;
 		fonts = rec {
-			sizes = {
-				terminal = 10;
-			};
+			sizes.terminal = 10;
 			serif = {
 				package = pkgs.nerd-fonts.jetbrains-mono;
 				name = "JetBrainsMono NF";
