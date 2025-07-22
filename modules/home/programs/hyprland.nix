@@ -114,7 +114,7 @@
 			
 			
 			bind = $mod, RETURN, exec, ${pkgs.alacritty}/bin/alacritty msg create-window || ${pkgs.alacritty}/bin/alacritty
-			bind = $mod, A, exec, ${pkgs.cool-retro-term}/bin/cool-retro-term --fullscreen
+			# bind = $mod, A, exec, ${pkgs.cool-retro-term}/bin/cool-retro-term --fullscreen
 
 			bind = $mod, E, exec, ${pkgs.nemo}/bin/nemo
 			bind = ALT, SPACE, exec, ${pkgs.rofi-wayland}/bin/rofi -show run
