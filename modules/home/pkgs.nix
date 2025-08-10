@@ -8,6 +8,7 @@ let unstable = import inputs.unstable { inherit system; }; in {
 		
 		# User packages
 		# android-studio-full
+		clock-rs
 		go
 		prismlauncher
 		transmission_3-gtk
