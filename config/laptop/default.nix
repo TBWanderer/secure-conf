@@ -17,10 +17,11 @@ in {
 				efiInstallAsRemovable = true;
 				efiSupport = true;
 				device = "nodev";
+				theme = lib.mkForce ( pkgs.catppuccin-grub.overrideAttrs { flavor = "macchiato"; } );
 			};
 		};
 		supportedFilesystems = [ "ntfs" ];
-		kernelPackages = pkgs.linuxKernel.packages.linux_6_15;
+		kernelPackages = pkgs.linuxPackages_latest;
 		kernelParams = [ "kvm.enable_virt_at_load=0" ];
 		kernelModules = [ "tcp_bbr" ];
 		kernel.sysctl = {
@@ -90,17 +91,21 @@ in {
 
 		resolved.enable = true;
 
-		xserver.desktopManager.cinnamon.enable = true;
-
-		greetd = {
-			enable = true;
-			settings = rec {
-				default_session = {
-					command = "${pkgs.cage}/bin/cage ${pkgs.greetd.gtkgreet}/bin/gtkgreet -- -c Hyprland";
-					user = "x";
-				};
-			};
+		xserver = {
+			desktopManager.cinnamon.enable = true;
+			displayManager.gdm.enable = true;
 		};
+		displayManager.defaultSession = "hyprland";
+
+		# greetd = {
+		# 	enable = true;
+		# 	settings = rec {
+		# 		default_session = {
+		# 			command = "${pkgs.cage}/bin/cage ${pkgs.greetd.gtkgreet}/bin/gtkgreet -- -c Hyprland";
+		# 			user = "greeter";
+		# 		};
+		# 	};
+		# };
 	};
 
 	networking = {
