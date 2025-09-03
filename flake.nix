@@ -3,14 +3,14 @@
 
 	inputs = {
 		unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-		nixpkgs.url = "github:NixOS/nixpkgs/release-25.05";
-    	stylix.url = "github:danth/stylix/release-25.05";
+		nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    	stylix.url = "github:danth/stylix/master";
 		nix-ld = {
 			url = "github:Mic92/nix-ld";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 		home-manager = {
-			url = "github:nix-community/home-manager/release-25.05";
+			url = "github:nix-community/home-manager/master";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 		firefox.url = "github:nix-community/flake-firefox-nightly";

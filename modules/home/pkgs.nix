@@ -1,5 +1,11 @@
 { pkgs, inputs, system, ... }:
-let unstable = import inputs.unstable { inherit system; }; in {
+let 
+	system = pkgs.system;
+	unstable = import inputs.unstable { 
+		inherit system; 
+		config.allowUnfree = true; # if you need unfree packages
+	};
+in {
 	home.packages = with pkgs; with inputs; [
 		# Packages from inputs
 		firefox.packages.${pkgs.system}.firefox-nightly-bin
@@ -8,7 +14,9 @@ let unstable = import inputs.unstable { inherit system; }; in {
 		
 		# User packages
 		# android-studio-full
-		
+
+		telegram-desktop
+
 		python3
 		python3Packages.pip
 		jetbrains.pycharm-community-bin
@@ -27,7 +35,6 @@ let unstable = import inputs.unstable { inherit system; }; in {
 		alsa-utils
 		sutils
 		wl-clipboard
-		telegram-desktop
 		aseprite
 		tor-browser
 		libreoffice-fresh

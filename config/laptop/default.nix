@@ -84,7 +84,6 @@ in {
 		};
 
 		pulseaudio.enable = false;
-		tailscale.enable = true;
 		blueman.enable = true;
 		libinput.enable = true;
 		openssh = {
@@ -99,11 +98,10 @@ in {
 
 		resolved.enable = true;
 
-		xserver = {
-			desktopManager.cinnamon.enable = true;
-			displayManager.gdm.enable = true;
+		displayManager = {
+			gdm.enable = true;
+			defaultSession = "hyprland";
 		};
-		displayManager.defaultSession = "hyprland";
 
 		# greetd = {
 		# 	enable = true;
