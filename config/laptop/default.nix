@@ -57,8 +57,14 @@ in {
     		"net.ipv4.tcp_congestion_control" = "bbr";
     		# Requires >= 4.19
     		"net.core.default_qdisc" = "cake";
+			"mem_sleep_default" = "deep";
 		};
 	};
+
+	swapDevices = lib.mkForce [{
+		device = "/var/lib/swapfile";
+		size = 16*1024; # 16 GB
+	}];
 
 	hardware = {
 		bluetooth = {
@@ -68,6 +74,8 @@ in {
 	};
 
 	nvidia.enable = true;
+
+	systemd.services."systemd-suspend".environment.SYSTEMD_SLEEP_FREEZE_USER_SESSIONS = "false";
 
 	services = {
 		pipewire = {
@@ -152,7 +160,10 @@ in {
 	];
 	
 	virtualisation = {
-		docker.enable = true;
+		docker = {
+			enable = true;
+			enableOnBoot = true;
+		};
 		virtualbox = {
 			host = {
 				enable = true;
@@ -185,11 +196,11 @@ in {
 
 	nix = {
 		package = pkgs.nixVersions.stable;
-		extraOptions = ''experimental-features = nix-command flakes'';
+		extraOptions = ''experimental-features = nix-command flakes dynamic-derivations ca-derivations recursive-nix'';
 		settings = {
 			show-trace = true;
-			substituters = [ "https://cache.garnix.io" ];
-			trusted-public-keys = [ "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g=" ];
+			# substituters = [ "https://cache.garnix.io" ];
+			# trusted-public-keys = [ "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g=" ];
 		};
 		gc = {
 			automatic = true;
@@ -211,6 +222,7 @@ in {
 		};
 		root.shell = pkgs.fish;
 	};
+
 
 	system.stateVersion = "25.05"; 
 }

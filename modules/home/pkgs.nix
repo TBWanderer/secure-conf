@@ -8,6 +8,11 @@ let unstable = import inputs.unstable { inherit system; }; in {
 		
 		# User packages
 		# android-studio-full
+		
+		python3
+		python3Packages.pip
+		jetbrains.pycharm-community-bin
+		gajim
 		clock-rs
 		go
 		prismlauncher
