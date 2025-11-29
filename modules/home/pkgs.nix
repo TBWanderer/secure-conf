@@ -10,16 +10,20 @@
 		# android-studio-full
 
 		telegram-desktop
-		xed
+		chromium
 
+		kdePackages.kolourpaint
+		android-studio
+		onlyoffice-desktopeditors
+		pix
+		freecad
 		python3
 		python3Packages.pip
-		jetbrains.pycharm-community-bin
 		gajim
 		clock-rs
 		go
 		prismlauncher
-		transmission_3-gtk
+		transmission_4-gtk
 		vesktop
 		cliphist
 		libnotify
@@ -32,7 +36,6 @@
 		wl-clipboard
 		aseprite
 		tor-browser
-		libreoffice-fresh
 		r2modman
 		winetricks
 		wineWowPackages.waylandFull

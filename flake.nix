@@ -2,7 +2,7 @@
 	description = "Flake NixOS configuration";
 
 	inputs = {
-		nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+		nixpkgs.url = "github:NixOS/nixpkgs/master";
     	stylix.url = "github:danth/stylix/master";
 		nix-ld = {
 			url = "github:Mic92/nix-ld";

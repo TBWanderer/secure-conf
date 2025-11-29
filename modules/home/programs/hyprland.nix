@@ -6,13 +6,13 @@
 	};
 	stylix.targets.hyprland.enable = false;
 	wayland.windowManager.hyprland = {
-		enable = true;
+		enable = false;
 		extraConfig = ''
 			monitor=,1920x1080@144,0x0,1
 			
 			$terminal = ${pkgs.alacritty}/bin/alacritty --working-directory /home/x/
 			$fileManager = ${pkgs.nemo}/bin/nemo
-			$menu = ${pkgs.rofi-wayland}/bin/rofi -show drun
+			$menu = ${pkgs.rofi}/bin/rofi -show drun
 			
 			exec-once = ${pkgs.wpaperd}/bin/wpaperd
 			exec-once = ${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.cliphist}/bin/cliphist store
@@ -98,9 +98,9 @@
 			}
 			
 			
-			gestures {
-			    workspace_swipe = true
-			}
+			# gestures {
+			#    workspace_swipe = true
+			# }
 			
 			$mod = SUPER 
 
@@ -117,9 +117,9 @@
 			# bind = $mod, A, exec, ${pkgs.cool-retro-term}/bin/cool-retro-term --fullscreen
 
 			bind = $mod, E, exec, ${pkgs.nemo}/bin/nemo
-			bind = ALT, SPACE, exec, ${pkgs.rofi-wayland}/bin/rofi -show run
-			bind = $mod, R, exec, ${pkgs.rofi-wayland}/bin/rofi -show drun
-			bind = $mod, V, exec, ${pkgs.cliphist}/bin/cliphist list | ${pkgs.rofi-wayland}/bin/rofi -dmenu -p "   Cliphist " -window-title "Cliphist" -sync | ${pkgs.cliphist}/bin/cliphist decode | ${pkgs.wl-clipboard}/bin/wl-copy
+			bind = ALT, SPACE, exec, ${pkgs.rofi}/bin/rofi -show run
+			bind = $mod, R, exec, ${pkgs.rofi}/bin/rofi -show drun
+			bind = $mod, V, exec, ${pkgs.cliphist}/bin/cliphist list | ${pkgs.rofi}/bin/rofi -dmenu -p "   Cliphist " -window-title "Cliphist" -sync | ${pkgs.cliphist}/bin/cliphist decode | ${pkgs.wl-clipboard}/bin/wl-copy
 			
 			bind = , PRINT, exec, ${import ./sshot.nix { inherit pkgs; }}/bin/sshot
 			# bind = CTRL SHIFT, PRINT, exec, pkill wf-recorder

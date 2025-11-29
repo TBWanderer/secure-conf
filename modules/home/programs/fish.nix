@@ -6,9 +6,9 @@
 			set fish_greeting
 			export NIXPKGS_ALLOW_UNFREE=1
 		'';
-		loginShellInit = ''
-			echo $(tty) | grep "tty" && Hyprland
-		'';
+		# loginShellInit = ''
+		# 	echo $(tty) | grep "tty" && Hyprland
+		# '';
 		shellAliases = {
 			q = "exit";
 			l = "ls -a -F";
