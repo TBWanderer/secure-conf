@@ -37,7 +37,7 @@ in
         gnome-characters gnome-music gnome-photos
         gnome-tour hitori iagno tali totem
         yelp gnome-maps gnome-weather simple-scan
-        snapshot
+        snapshot showtime
       ];
       description = "GNOME packages to exclude from installation";
     };

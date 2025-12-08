@@ -9,6 +9,8 @@
 		# User packages
 		# android-studio-full
 
+		wmctrl
+
 		telegram-desktop
 		chromium
 

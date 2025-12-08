@@ -132,7 +132,6 @@ in {
     openssh = {
       enable = true;
       settings = {
-        PasswordAuthentication = false;
         PermitRootLogin = "no";
       };
     };
@@ -172,8 +171,10 @@ in {
   };
 
   environment = {
+    variables.PATH = "/home/x/.cargo/bin:$PATH";
     # Session variables
     sessionVariables = {
+      PATH = "/home/x/.cargo/bin:$PATH";
       EDITOR = "vim";
       DIRENV_LOG_FORMAT = "";
       # Better NVIDIA performance
